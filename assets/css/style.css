@@ -37,6 +37,13 @@ body::before {
   }
 }
 
+@media (max-width: 430px) {
+  body::before {
+    right: -400px;
+  }
+}
+
+
 a {
   color: #18d26e;
   text-decoration: none;
@@ -353,6 +360,10 @@ h6 {
 
   .navbar ul {
     display: none;
+  }
+
+  .content{
+    font-size: 13px;
   }
 }
 
