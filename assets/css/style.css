@@ -54,6 +54,62 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.content {
+  font-size: 22px;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.content__container {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  height: 40px;
+  position: relative;
+}
+
+.content__container::before, .content__container::after {
+  content: '[';
+  color: #16a085;
+  font-size: 42px;
+  line-height: 40px;
+  vertical-align: bottom;
+}
+
+.content__container::after {
+  content: ']';
+}
+
+.content__container__list {
+  display: inline-block;
+  padding-left: 10px;
+  animation: change 10s infinite;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.content__container__list__item {
+  display: block;
+  white-space: nowrap;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 2px solid #18d26e;
+}
+
+@keyframes change {
+  0%, 12.66%, 100% {transform: translateY(0);}
+  16.66%, 29.32% {transform: translateY(-40px);}
+  33.32%, 45.98% {transform: translateY(-80px);}
+  49.98%, 62.64% {transform: translateY(-120px);}
+  66.64%, 79.3% {transform: translateY(-80px);}
+  83.3%, 95.96% {transform: translateY(-40px);}
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -105,7 +161,7 @@ h6 {
 }
 
 #header .social-links {
-  margin-top: 40px;
+  margin-top: 25px;
   display: flex;
 }
 
@@ -200,7 +256,7 @@ h6 {
 */
 .navbar {
   padding: 0;
-  margin-top: 35px;
+  margin-top: 10px;
 }
 
 .navbar ul {
