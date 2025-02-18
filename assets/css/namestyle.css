@@ -1,0 +1,58 @@
+ /* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px; /* Prevents content from touching edges on small screens */
+}
+
+/* Card Styling */
+.card {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, #09203f 40%, #537895 100%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Ensures vertical arrangement */
+    justify-content: start; /* Centers content vertically */
+}
+
+ /* Name Card */
+ .name-card {
+    color: white;
+    font-size: 18vw; /* Responsive font size */
+    font-weight: bold;
+    border-radius: 8px;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Great Vibes Font */
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Contact Information */
+.contact {
+    height: 50%;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.rowss { 
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    gap: 25px; /* Adds spacing between icon and text */
+}
