@@ -27,7 +27,7 @@
             Shabir Ali
         </div>
         <div class="contact">
-            <div class="rowss">
+            <div class="rowss" onclick="window.location.href='mailto:mrshabirali@gmail.com';">
                 <div class="iconp">
                     <i class="bi bi-envelope"></i>
                 </div>
@@ -35,7 +35,7 @@
                     <p>mrshabirali@gmail.com</p>
                 </div>
             </div>
-            <div class="rowss">
+            <div class="rowss" onclick="window.open('https://www.linkedin.com/in/sha-bir-ali/', '_blank');">
                 <div class="iconp">
                     <i class="bi bi-linkedin"></i>
                 </div>
@@ -43,17 +43,38 @@
                     <p>mrshabirali</p>
                 </div>
             </div>
-            <div class="rowss">
+            <div class="rowss" onclick="window.open('https://www.shabirali.me', '_blank');">
                 <div class="iconp">
                     <i class="bi bi-globe"></i>
                 </div>
                 <div class="contactp">
                     <p>shabirali.me</p>
-                    <a href="https://www.shabirali.me"></a>
+                </div>
+            </div>
+        </div>
+        <div class="sharebutton">
+            <div class="row">
+                <div class="iconp" onclick="showQRModal()">
+                    <i class="bi bi-qr-code" style="font-size: 2rem; "></i> <!-- QR Icon -->
+                </div>
+                <div class="iconp" onclick="shareContent()">
+                    <i class="bi bi-share" style="font-size: 2rem; "></i> <!-- Share Icon -->
+                </div>
+            </div>
+
+            <!-- QR Code Pop-up Modal -->
+            <div id="qrModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3 style="color: black;">Scan & Download QR</h3>
+                    <img id="qrCodeImage" src="assets/img/qrimage.png" alt="QR Code">
+                    <a id="downloadQR" href="assets/img/qrimage.png" download="qrimage.png">Download</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Template Main JS File -->
+  <script src="assets/js/namecard.js"></script>
 </body>
 </html>
