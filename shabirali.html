@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Shabir Ali</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/Bty.png" rel="icon">
+
+  <!-- Google Font: Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+   <link href="assets/css/namestyle.css" rel="stylesheet">
+   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card">
+        <div class="name-card great-vibes-regular">
+            Shabir Ali
+        </div>
+        <div class="contact">
+            <div class="rowss" onclick="window.location.href='mailto:mrshabirali@gmail.com';">
+                <div class="iconp">
+                    <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contactp">
+                    <p>mrshabirali@gmail.com</p>
+                </div>
+            </div>
+            <div class="rowss" onclick="window.open('https://www.linkedin.com/in/sha-bir-ali/', '_blank');">
+                <div class="iconp">
+                    <i class="bi bi-linkedin"></i>
+                </div>
+                <div class="contactp">
+                    <p>mrshabirali</p>
+                </div>
+            </div>
+            <div class="rowss" onclick="window.open('https://www.shabirali.me', '_blank');">
+                <div class="iconp">
+                    <i class="bi bi-globe"></i>
+                </div>
+                <div class="contactp">
+                    <p>shabirali.me</p>
+                </div>
+            </div>
+        </div>
+        <div class="sharebutton">
+            <div class="row">
+                <div class="iconp" onclick="showQRModal()">
+                    <i class="bi bi-qr-code" style="font-size: 2rem; "></i> <!-- QR Icon -->
+                </div>
+                <div class="iconp" onclick="shareContent()">
+                    <i class="bi bi-share" style="font-size: 2rem; "></i> <!-- Share Icon -->
+                </div>
+            </div>
+
+            <!-- QR Code Pop-up Modal -->
+            <div id="qrModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" style="color: brown;" onclick="closeModal()">&times;</span>
+                    <h3 style="color: black;">Scan & Download QR</h3>
+                    <img id="qrCodeImage" src="assets/img/qrimage.png" alt="QR Code">
+                    <a id="downloadQR" href="assets/img/qrimage.png" download="qrimage.png">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Main JS File -->
+  <script src="assets/js/namecard.js"></script>
+</body>
+</html>
