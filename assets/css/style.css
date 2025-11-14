@@ -1351,6 +1351,8 @@ section .container {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; /* allow boxes to wrap on small screens */
+    padding: 10px; /* optional for spacing from edges */
 }
 
 .box {
@@ -1358,18 +1360,31 @@ section .container {
     padding: 20px 25px;
     border-radius: 12px;
     box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    flex: 1 1 80px; /* allows box to shrink/grow on smaller screens */
+    text-align: center; /* center text in mobile view */
+    min-width: 80px; /* prevents boxes from shrinking too much */
 }
 
 .box span {
-    font-size: 40px;
+    font-size: 30px; /* slightly smaller for mobile */
     font-weight: bold;
     color: #0077ff;
     display: block;
 }
 
 .label {
-    font-size: 14px;
+    font-size: 12px; /* smaller for mobile */
     color: #333;
     margin-top: 5px;
     text-transform: uppercase;
+}
+
+/* Optional: media query for very small screens */
+@media (max-width: 480px) {
+    .box span {
+        font-size: 24px;
+    }
+    .label {
+        font-size: 10px;
+    }
 }
