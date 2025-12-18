@@ -7,22 +7,15 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-  <url>
-    <loc>https://www.shabirali.me/index.html</loc>
-    <lastmod>2024-12-10T09:32:00+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-
   <url>
     <loc>https://www.shabirali.me/portfolio-details.html</loc>
-    <lastmod>2024-12-10T09:32:00+00:00</lastmod>
+    <lastmod>2025-12-10T09:32:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://www.shabirali.me/index.html</loc>
-    <lastmod>2024-12-10T09:32:00+00:00</lastmod>
+    <lastmod>2025-12-10T09:32:00+00:00</lastmod>
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://www.shabirali.me/assets/img/shabirali.jpg</image:loc>
@@ -33,3 +26,4 @@
   </url>
 
 </urlset>
+
