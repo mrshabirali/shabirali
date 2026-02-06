@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+
+    <link rel="stylesheet" href="/assets/css/valantaincss.css">
+</head>
+<body>
+    <div class="progress-indicator" id="progressIndicator"></div>
+
+     <div class="card-container" id="cardContainer">
+        <!-- Card 1: Welcome -->
+        <div class="card active" data-card="1">
+            <h1 class="typewriter">Hey You... 💕</h1>
+            <p class="fade-in delay-3">I made something special for you</p>
+            <button class="btn heartbeat fade-in delay-4" onclick="nextCard()">Start ❤️</button>
+        </div>
+
+         <!-- Card 2: Smile Check -->
+        <div class="card" data-card="2">
+            <h2>Do You Love Me?</h2>
+            <div class="button-group">
+                <button class="btn runaway" id="noBtn" onmouseover="runAway(this)" onclick="heartPop(event)">No 😐</button>
+                <button class="btn hover-grow" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="heartPop(event); setTimeout(nextCard, 800)">Yes 😊</button>
+            </div>
+        </div>
+
+        <!-- Card 3: Attention Test -->
+        <div class="card" data-card="3">
+            <h2>Quick test...</h2>
+            <p>Can I have your full attention?</p>
+            <div class="button-group">
+                <button class="btn shake" onclick="attentionTest(this)">Maybe 🤔</button>
+                <button class="btn shake" onclick="attentionTest(this)">Sure 👀</button>
+                <button class="btn shake" onclick="attentionTest(this)">Always ❤️</button>
+            </div>  
+            <p class="response-text" id="attentionResponse">Good. You're here now Mubi 😌</p>
+        </div>
+
+        <!-- Card 4: Curiosity Tease -->
+        <div class="card blur-start" data-card="4" id="card4">
+            <h2>Curious what this is?</h2>
+            <p>Pick your vibe...</p>
+            <div class="button-stack">
+                <button class="btn glow-select" onclick="selectGlow(this)">Intrigued 🧐</button>
+                <button class="btn glow-select" onclick="selectGlow(this)">Excited 🤩</button>
+                <button class="btn glow-select" onclick="selectGlow(this)">Suspicious 😏</button>
+            </div>
+        </div>   
+
+        <!-- Card 5: Memory Lane -->
+        <div class="card" data-card="5">
+            <h2>First thing you noticed about me?</h2>
+            <input type="text" class="expanding-input" id="memoryInput" placeholder="Type here..." oninput="checkInput()">
+            <div class="floating-hearts-container">
+                <div id="floatingHearts"></div>
+            </div>
+            <button class="btn hidden" id="memoryNext" onclick="nextCard()">Next ❤️</button>
+        </div>
+
+        <!-- Card 6: Stubborn Poll -->
+        <div class="card" data-card="6">
+            <h2>Who's more stubborn?</h2>
+            <div class="button-row">
+                <button class="btn correct-btn" onclick="correctAnswer(this)">Me 😤</button>
+                <button class="btn" onclick="wrongAnswerStubborn()">You 😏</button>
+                <button class="btn" onclick="wrongAnswerStubborn()">Both 😂</button>
+            </div>
+            <p class="response-text" id="stubbornResponse"></p>
+        </div>
+
+        <!-- Card 7: Compliment Trap -->
+        <div class="card" data-card="7">
+            <h2>What's your best feature?</h2>
+            <div class="button-stack">
+                <button class="btn" onclick="wrongAnswer(this)">Eyes 👀</button>
+                <button class="btn" onclick="wrongAnswer(this)">Smile 😊</button>
+                <button class="btn" onclick="wrongAnswer(this)">Laugh 😂</button>
+                <button class="btn sparkle" id="perfectBtn" onclick="perfectAnswer()">Everything ✨</button>
+            </div>
+            <p class="response-text" id="complimentResponse"></p>
+        </div>
+
+        <!-- Card 8: Trust Button -->
+        <div class="card" data-card="8">
+            <h2>Do you trust me?</h2>
+            <div class="big-heart fast-heartbeat" onclick="trustClick()">❤️</div>
+            <p class="response-text" id="trustResponse">I knew it ❤️</p>
+        </div>
+
+        <!-- Card 9: Fake Choice -->
+        <div class="card" data-card="9">
+            <h2>Pick one...</h2>
+            <div class="merge-container" id="mergeContainer">
+                <button class="btn merge-btn left" id="leftBtn" onclick="mergeButtons()">Hugs 🤗</button>
+                <button class="btn merge-btn right" id="rightBtn" onclick="mergeButtons()">Kisses 😘</button>
+            </div>
+            <p class="response-text" id="mergeResponse">Either way... I want Both.</p>
+        </div>
+
+        <!-- Card 10: Love Meter -->
+        <div class="card" data-card="10">
+            <h2>Rate your love for me</h2>
+            <div class="slider-container">
+                <div class="hearts-bar"></div>
+                <input type="range" class="love-slider" min="1" max="10" value="10" 
+                       onmousedown="handleSliderAttempt()" 
+                       ontouchstart="handleSliderAttempt()"
+                       oninput="forceMax(this)">
+                <div class="tooltip" id="sliderTooltip">Nice try 😌</div>
+            </div>
+            <p class="hearts-display">💖💖💖💖💖💖💖💖💖💖</p>
+            <button class="btn hidden" id="sliderNext" onclick="nextCard()">Continue ❤️</button>
+        </div>
+
+        <!-- Card 11: Mood Check -->
+        <div class="card" data-card="11">
+            <h2>How are you feeling?</h2>
+            <div class="emoji-row">
+                <button class="emoji-btn" onclick="selectEmoji(this, 'Happy')">😊</button>
+                <button class="emoji-btn" onclick="selectEmoji(this, 'Loved')">🥰</button>
+                <button class="emoji-btn" onclick="selectEmoji(this, 'Excited')">🤩</button>
+                <button class="emoji-btn" onclick="selectEmoji(this, 'Butterflies')">🦋</button>
+            </div>
+            <p class="response-text" id="moodResponse">That looks good on you.</p>
+        </div>
+
+        <!-- Card 12: Apology Truth -->
+        <div class="card" data-card="12">
+            <h2>Who says sorry first?</h2>
+            <div class="button-stack">
+                <button class="btn tilt-left" onclick="tiltSelect(this, false)">Me first 🙋</button>
+                <button class="btn tilt-right" onclick="tiltSelect(this, false)">You first 🫵</button>
+                <button class="btn special-gradient" onclick="tiltSelect(this, true)">Whoever misses more ❤️</button>
+            </div>
+            <p class="response-text" id="apologyResponse"></p>
+        </div>
+
+        <!-- Card 13: Appreciation -->
+        <div class="card heart-cursor" data-card="13">
+            <h2>One thing you appreciate about us?</h2>
+            <p class="word-fade" id="appreciateText">The way we laugh at stupid things together...</p>
+            <button class="btn hidden" id="appreciateBtn" onclick="nextCard()">Next ❤️</button>
+        </div>
+
+        <!-- Card 14: Movie Prediction -->
+        <div class="card" data-card="14" id="card14">
+            <h2>What are we watching tonight?</h2>
+            <div class="movie-grid">
+                <button class="btn" onclick="movieSelect(this)">Rom-Com 💕</button>
+                <button class="btn" onclick="movieSelect(this)">Action 💥</button>
+                <button class="btn" onclick="movieSelect(this)">Horror 👻</button>
+                <button class="btn" onclick="movieSelect(this)">Whatever you want 😌</button>
+            </div>
+            <p class="response-text" id="movieResponse">I already knew 😌</p>
+        </div>
+
+        <!-- Card 15: Gentle Pause -->
+        <div class="card pause-card" data-card="15">
+            <div class="breathing-bg"></div>
+            <h2 class="relative-z">Breathe...</h2>
+            <p class="relative-z">Just take a moment.<br>Feel this.</p>
+            <p class="relative-z moon">🌙</p>
+            <button class="btn hidden relative-z" id="pauseBtn" onclick="nextCard()">Continue when ready ❤️</button>
+        </div>
+
+        <!-- Card 16: Date Night -->
+        <div class="card" data-card="16">
+            <h2>Perfect date night?</h2>
+            <div class="tiles-grid">
+                <div class="tile" onclick="dateSelect(this)">
+                    <div class="tile-icon">🍽️</div>
+                    <p>Fancy Dinner</p>
+                </div>
+                <div class="tile" onclick="dateSelect(this)">
+                    <div class="tile-icon">🏠</div>
+                    <p>Home Cuddles</p>
+                </div>
+                <div class="tile" onclick="dateSelect(this)">
+                    <div class="tile-icon">🌅</div>
+                    <p>Sunset Walk</p>
+                </div>
+                <div class="tile" onclick="dateSelect(this)">
+                    <div class="tile-icon">🎮</div>
+                    <p>Gaming Night</p>
+                </div>
+            </div>
+            <p class="response-text" id="dateResponse">Perfect. With you ❤️</p>
+        </div>
+
+        <!-- Card 17: Promise Card -->
+        <div class="card" data-card="17">
+            <h2>One promise for this year?</h2>
+            <textarea class="glow-text" id="promiseText" placeholder="I promise to..." oninput="checkPromise()"></textarea>
+            <p class="response-text" id="promiseResponse">I'll remember this 🤍</p>
+            <button class="btn hidden" id="promiseBtn" onclick="nextCard()">Seal it ❤️</button>
+        </div>
+
+        <!-- Card 18: Almost There -->
+        <div class="card" data-card="18" id="card18">
+            <h2>Almost there...</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="fade-text" id="almostText">Just one more thing...</p>
+        </div>
+
+        <!-- Card 19: Big Question -->
+        <div class="card" data-card="19">
+            <h2>Will you be my Valentine? 😈</h2>
+            <div class="valentine-buttons">
+                <button class="btn escaping" id="noValentine" onmouseover="escapeButton(this)">No 💔</button>
+                <button class="btn big-yes" onclick="valentineYes()">Yes ❤️</button>
+            </div>
+        </div>
+
+        <!-- Card 20: Final -->
+        <div class="card" data-card="20" id="finalCard">
+            <div class="final-text">
+                <div class="line-reveal" style="animation-delay: 0.5s;">You made it.</div>
+                <div class="line-reveal" style="animation-delay: 1.5s;">You made me the happiest.</div>
+                <div class="line-reveal final-line" style="animation-delay: 2.5s;">Happy Valentine's Day ❤️</div>
+            </div>
+            <div class="final-heart">💝</div>
+        </div>
+
+                <!-- Card 21: Photo Collage Finale -->
+        <div class="photo-collage-fullscreen" id="photoCollage">
+            <div class="collage-photos-container" id="collagePhotos"></div>
+            <div class="collage-overlay" id="collageOverlay">
+                <h1 class="collage-title">Us 💕</h1>
+                <p class="collage-subtitle">Every moment is a memory</p>
+                <button class="btn collage-restart" onclick="location.reload()">Watch Again ↺</button>
+            </div>
+        </div>
+
+     </div>
+
+    <div class="nav-hint" id="navHint">Tap to continue ↓</div>
+
+    <script src="/assets/js/valantainjs.js"></script>
+</body>
+</html>
