@@ -367,14 +367,48 @@ function initFinal() {
 
 // ===== PHOTO COLLAGE =====
 const collagePhotos = [
-    'couple1.jpg', 'couple2.jpg', 'couple3.jpg', 'couple4.jpg', 
-    'couple5.jpg', 'couple6.jpg', 'couple7.jpg', 'couple8.jpg',
-    'couple9.jpg', 'couple10.jpg', 'couple11.jpg', 'couple12.jpg',
-    'couple13.jpg', 'couple14.jpg', 'couple15.jpg', 'couple16.jpg',
-    'couple17.jpg', 'couple18.jpg', 'couple19.jpg', 'couple20.jpg',
-    'couple21.jpg', 'couple22.jpg', 'couple23.jpg', 'couple24.jpg'
-    // Add more photos as needed
+    "../assets/img/usphoto/couple1.jpeg",
+    "../assets/img/usphoto/couple2.jpeg",
+    "../assets/img/usphoto/couple3.jpeg",
+    "../assets/img/usphoto/couple4.jpeg",
+    "../assets/img/usphoto/couple5.jpeg",
+    "../assets/img/usphoto/couple6.jpeg",
+    "../assets/img/usphoto/couple7.jpeg",
+    "../assets/img/usphoto/couple8.jpeg",
+    "../assets/img/usphoto/couple9.jpeg",
+    "../assets/img/usphoto/couple10.jpeg",
+    "../assets/img/usphoto/couple11.jpeg",
+    "../assets/img/usphoto/couple12.jpeg",
+    "../assets/img/usphoto/couple13.jpeg",
+    "../assets/img/usphoto/couple14.jpeg",
+    "../assets/img/usphoto/couple15.jpeg",
+    "../assets/img/usphoto/couple16.jpeg",
+    "../assets/img/usphoto/couple17.jpeg",
+    "../assets/img/usphoto/couple18.jpeg",
+    "../assets/img/usphoto/couple19.jpeg",
+    "../assets/img/usphoto/couple20.jpeg",
+    "../assets/img/usphoto/couple21.jpeg",
+    "../assets/img/usphoto/couple22.jpeg",
+    "../assets/img/usphoto/couple23.jpeg",
+    "../assets/img/usphoto/couple24.jpeg",
+    "../assets/img/usphoto/couple25.jpeg",
+    "../assets/img/usphoto/couple26.jpeg",
+    "../assets/img/usphoto/couple27.jpeg",
+    "../assets/img/usphoto/couple28.jpeg",
+    "../assets/img/usphoto/couple29.jpeg",
+    "../assets/img/usphoto/couple30.jpeg",
+    "../assets/img/usphoto/couple31.jpg",
+    "../assets/img/usphoto/couple32.jpg",
+    "../assets/img/usphoto/couple33.jpg",
+    "../assets/img/usphoto/couple34.jpg",
+    "../assets/img/usphoto/couple35.jpeg",
+    "../assets/img/usphoto/couple36.jpeg",
+    "../assets/img/usphoto/couple37.jpeg",
+    "../assets/img/usphoto/couple38.jpeg",
+    "../assets/img/usphoto/couple39.jpeg",
+    "../assets/img/usphoto/couple40.jpeg"
 ];
+
 
 function showPhotoCollage() {
     const collage = document.getElementById('photoCollage');
@@ -403,22 +437,22 @@ function showPhotoCollage() {
 }
 
 function generateCollagePhotos(container) {
-    const photoCount = 24; // Number of photos to show
+    const photoCount = 40;
     const usedPositions = [];
-    
+
     for (let i = 0; i < photoCount; i++) {
         setTimeout(() => {
-            createCollagePhoto(container, i, photoCount);
-        }, i * 200); // Staggered appearance: one every 200ms
+            createCollagePhoto(container, i, photoCount, usedPositions);
+        }, i * 200);
     }
 }
 
-function createCollagePhoto(container, index, total) {
+function createCollagePhoto(container, index, total, usedPositions) {
     const photo = document.createElement('div');
     photo.className = 'collage-photo';
     
     // Random size between 120px and 250px
-    const size = Math.random() * 130 + 120;
+    const size = Math.random() * 130 + 120 * 1.5; // Scale up for better visibility
     photo.style.width = size + 'px';
     photo.style.height = (size * 1.25) + 'px'; // Portrait ratio
     
@@ -432,6 +466,8 @@ function createCollagePhoto(container, index, total) {
     
     photo.style.left = left + '%';
     photo.style.top = top + '%';
+
+    usedPositions.push({ left, top });
     
     // Random rotation (-20 to 20 degrees)
     const rotation = Math.random() * 40 - 20;
@@ -462,7 +498,7 @@ function createCollagePhoto(container, index, total) {
     // Trigger animation
     requestAnimationFrame(() => {
         photo.classList.add('show');
-    });
+    }, index * 400);
     
     // Store position
     usedPositions.push({left, top});
@@ -472,7 +508,7 @@ function isTooClose(left, top, positions) {
     // Allow some overlap, just not exact same position
     for (let pos of positions) {
         const dist = Math.sqrt(Math.pow(left - pos.left, 2) + Math.pow(top - pos.top, 2));
-        if (dist < 8) return true; // Too close if less than 8% apart
+        if (dist < 12) return true; // Too close if less than 8% apart
     }
     return false;
 }
