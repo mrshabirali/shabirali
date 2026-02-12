@@ -480,6 +480,7 @@ function createCollagePhoto(container, index, total, usedPositions) {
     const entrances = ['flyFromLeft', 'flyFromRight', 'flyFromTop', 'flyFromBottom', 'flyFromCorner', 'flyFromCorner2'];
     const entrance = entrances[Math.floor(Math.random() * entrances.length)];
     photo.style.animation = `${entrance} 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`;
+    photo.style.animationDelay = `${index * 3}s`; // 3s delay per photo
     
     // Create image
     const img = document.createElement('img');
@@ -498,7 +499,7 @@ function createCollagePhoto(container, index, total, usedPositions) {
     // Trigger animation
     requestAnimationFrame(() => {
         photo.classList.add('show');
-    }, index * 400);
+    }, index * 3000);
     
     // Store position
     usedPositions.push({left, top});
